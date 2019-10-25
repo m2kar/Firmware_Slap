@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   rabbit:
-    image: rabbitmq:3.8-management
+    image: rabbitmq:3.8
     networks:
       - fw-net
   # celery:
@@ -17,6 +17,7 @@ services:
     networks:
       - fw-net
     volumes:
+      - "${PWD}:/fwslap"
       - "/var/run/docker.sock:/var/run/docker.sock"
     command: ["sleep","inf"]
 
